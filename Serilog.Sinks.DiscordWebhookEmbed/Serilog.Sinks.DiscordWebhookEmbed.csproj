@@ -1,13 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<NuspecProperties>version=$(Version)</NuspecProperties>
+		<PackageId>Serilog.Sinks.DiscordWebhookEmbed</PackageId>
+		<Authors>Kevin Gysberg</Authors>
+		<PackageProjectUrl>https://github.com/kg73/Serilog.Sinks.DiscordWebhookEmbed</PackageProjectUrl>
+		<Description>Extensions to start Ngrok automatically from the AspNetCore pipeline. Useful for local development when a public URL is needed.</Description>
+		<PackageLicenseUrl>https://raw.githubusercontent.com/kg73/Serilog.Sinks.DiscordWebhookEmbed/master/LICENSE</PackageLicenseUrl>
+		<Company />
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Discord.Net.Rest" Version="2.0.1" />
-    <PackageReference Include="Discord.Net.Webhook" Version="2.0.1" />
-    <PackageReference Include="Serilog" Version="2.8.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Discord.Net.Rest" Version="2.0.1" />
+		<PackageReference Include="Discord.Net.Webhook" Version="2.0.1" />
+		<PackageReference Include="Serilog" Version="2.8.0" />
+	</ItemGroup>
 
 </Project>
