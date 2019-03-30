@@ -11,14 +11,14 @@ using System.Threading;
 
 namespace Serilog.Sinks.DiscordWebhookEmbed
 {
-	public class DiscordWebhookSerilogSink : ILogEventSink
+	public class DiscordWebhookEmbedSerilogSink : ILogEventSink
 	{
 		private readonly IFormatProvider _formatProvider;
 		private readonly DiscordWebhookClient _client;
 		private readonly ConcurrentQueue<EmbedFieldBuilder> _messageQueue;
 		private readonly Timer _timer;
 
-		public DiscordWebhookSerilogSink(ulong webhookId, string webhookSecret, int sendIntervalMs = 2500, DiscordRestConfig restConfig = null, IFormatProvider formatProvider = null)
+		public DiscordWebhookEmbedSerilogSink(ulong webhookId, string webhookSecret, int sendIntervalMs = 2500, DiscordRestConfig restConfig = null, IFormatProvider formatProvider = null)
 		{
 			_formatProvider = formatProvider;
 			_client = new DiscordWebhookClient(webhookId, webhookSecret,

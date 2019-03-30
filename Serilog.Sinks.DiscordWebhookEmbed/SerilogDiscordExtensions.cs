@@ -6,7 +6,7 @@ namespace Serilog.Sinks.DiscordWebhookEmbed
 {
 	public static class SerilogDiscordExtensions
 	{
-		public static LoggerConfiguration DiscordWebhook(
+		public static LoggerConfiguration DiscordWebhookEmbed(
 			this LoggerSinkConfiguration loggerConfiguration,
 			ulong webhookId,
 			string webhookSecret,
@@ -14,7 +14,7 @@ namespace Serilog.Sinks.DiscordWebhookEmbed
 			DiscordRestConfig restConfig = null,
 			IFormatProvider formatProvider = null)
 		{
-			return loggerConfiguration.Sink(new DiscordWebhookSerilogSink(webhookId, webhookSecret, sendIntervalMs, restConfig,
+			return loggerConfiguration.Sink(new DiscordWebhookEmbedSerilogSink(webhookId, webhookSecret, sendIntervalMs, restConfig,
 				formatProvider));
 		}
 	}
