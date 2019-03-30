@@ -1,0 +1,27 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+name: $(majorVersion).$(minorVersion)$(Rev:.r)
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+- name: majorVersion
+  value: 0
+- name: minorVersion
+  value: 0
+- name: BuildConfiguration
+  value: Release
+
+trigger:
+- master
+
+steps:
+- script: |
+    dotnet restore ./Serilog.Sinks.DiscordWebhookEmbed/Serilog.Sinks.DiscordWebhookEmbed.csproj
+    dotnet build ./Serilog.Sinks.DiscordWebhookEmbed/Serilog.Sinks.DiscordWebhookEmbed.csproj --configuration $(BuildConfiguration)
+    dotnet pack ./Serilog.Sinks.DiscordWebhookEmbed/Serilog.Sinks.DiscordWebhookEmbed.csproj --configuration $(BuildConfiguration) /p:PackageVersion=$(Build.BuildNumber) --output $(build.artifactstagingdirectory)
+- task: PublishBuildArtifacts@1
